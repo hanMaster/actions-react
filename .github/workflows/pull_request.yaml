@@ -1,4 +1,4 @@
-name: Print pull request context
+name: Print pull request event
 on:
   workflow_dispatch:
   pull_request:
