@@ -25,13 +25,11 @@ jobs:
       - name: Build app
         run: npm run build
       - name: Deploy
-        run: echo Deploying...
-
-      - name: Copy single file to remote
         uses: garygrossgarten/github-action-scp@release
         with:
-          local: your-artifact
-          remote: remote-path/your-artifact
+          local: /build
+          remote: ./build
           host: ${{ secrets.HOST }}
-          username: ${{ secrets.SSH_USER }}
-          password: ${{ secrets.PASSWORD }}
+          username: ${{ secrets.USER }}
+          privateKey: ${{ secrets.PK }}
+          passphrase: ${{ secrets.PASSPHRASE }}
